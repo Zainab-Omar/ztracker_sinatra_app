@@ -11,14 +11,14 @@ class ApplicationController < Sinatra::Base
 
   get "/" do
     if logged_in?
-      redirect to (/trackers) #redirect to the trackers index
+      redirect to ('/trackers') #redirect to the trackers index
     else
       erb :welcome  #user can signin or signup
     end
     erb :welcome
   end
 
-  helpers do
+ # helpers do
 
     def current_user
       @current_user ||= User.find(session[:user_id])
@@ -28,6 +28,6 @@ class ApplicationController < Sinatra::Base
       !!session[:user_id]
     end
 
-  end
+  #end
 
 end
