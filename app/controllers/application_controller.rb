@@ -6,11 +6,28 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
-    set :session_secret, 'trakersecure'
+    set :session_secret, 'trackersecure'
   end
 
   get "/" do
+    if logged_in?
+      redirect to (/trackers) #redirect to the trackers index
+    else
+      erb :welcome  #user can signin or signup
+    end
     erb :welcome
+  end
+
+  helpers do
+
+    def current_user
+      @current_user ||= User.find(session[:user_id])
+    end
+
+    def logged_in?
+      !!session[:user_id]
+    end
+
   end
 
 end
