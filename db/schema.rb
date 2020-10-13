@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20201013171220) do
     t.string   "exercise_time"
     t.integer  "intake_cal"
     t.integer  "burned_cal"
-    t.integer  "total_cal"
     t.integer  "user_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false

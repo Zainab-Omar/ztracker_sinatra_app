@@ -6,7 +6,6 @@ class CreateTrackers < ActiveRecord::Migration
       t.string :exercise_time
       t.integer :intake_cal
       t.integer :burned_cal
-      t.integer :total_cal
       t.integer :user_id
 
       t.timestamps null: false
