@@ -9,7 +9,14 @@ class UsersController < ApplicationController
     end
 
     post '/signup' do
-        
+        @user = User.new(params)
+        if !@user.save
+            @errors = @user.errors.full_messages
+            erb :'users/create_user'
+        else
+            session[:user_id] = @user.id
+            redirect to ('/trackers')
+        end
     end
 
     get '/signin' do
