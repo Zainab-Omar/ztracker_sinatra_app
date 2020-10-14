@@ -20,16 +20,16 @@ class UsersController < ApplicationController
     end
 
     get '/signin' do
-        
+        if !session[:user_id]
+            erb :''
+        end
     end
 
     post '/signin' do
-        
     end
 
     get '/signout' do
-        session.clear
-        redirect to ('/')
+
     end
 
 end
