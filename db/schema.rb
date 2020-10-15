@@ -14,7 +14,6 @@
 ActiveRecord::Schema.define(version: 20201013171220) do
 
   create_table "trackers", force: :cascade do |t|
-    t.date     "date"
     t.string   "gender"
     t.string   "exercise_time"
     t.integer  "intake_cal"
