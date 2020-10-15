@@ -9,7 +9,7 @@ class TrackersController < ApplicationController
         end
     end
 
-    get '/trackers/new' do
+    get '/trackers/new' do 
         if logged_in?
             @current_user
             erb :'/trackers/new'
@@ -19,8 +19,18 @@ class TrackersController < ApplicationController
     end
 
     post '/trackers' do
-        
+        if logged_in?
+            #binding.pry
+            @tracker = current_user.trackers.build(params)
+            if !@tracker.save
+                @errors = @tracker.errors.full_messages
+                erb :'/trackers/new'
+            else
+                redirect to "/trackers/#{@tracker.id}" #redirect to show page 
+            end
+        else
+            redirect to 'signin'
+        end  
     end
-
 
 end

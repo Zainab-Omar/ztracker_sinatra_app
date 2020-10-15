@@ -5,14 +5,15 @@
    <% if @trackers.size > 0 %>
     <% @trackers.each do |tracker| %>
      <% if tracker.user_id == @current_user.id %>
-       <li>Tracker Create at:<a href="/trackers/<%=tracker.id%>"><%=tracker.create_at%></a></li>
+       <li>Tracker Create at: <a href="/trackers/<%=tracker.id%>"><%=tracker.created_at%></a></li>
      <%end%>
       <%end%>
+ </ul>
 <br><br>
   <a href="/trackers/new">Create new tracker</a>
   <%else%>
     <h3>You do not have any trackers!<a href="/trackers/new">Create new tracker</a></h3>
   <%end%>
- </ul>
+ 
 
 <h4></h4><a href="/signout"> signout</a></h4>
