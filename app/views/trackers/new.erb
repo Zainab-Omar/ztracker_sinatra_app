@@ -1,0 +1,20 @@
+<h1>Create new tracker below:</h1>
+
+<% if @errors %>
+<p style="color:red;"><%=errors%></p>
+<%end%>
+
+<form action="/trackers" method="POST">
+  <label for="gender">Gender:</label>
+  <input type="text" name="gender" id="gender" /><br><br>
+
+  <label for="exercise_time">Daily exercise time:</label>
+  <input type="text" name="exercise_time" id="exercise_time" /><br><br>
+
+  <label for="intake_cal">Daily intake calories:</label>
+  <input type="text" name="intake_cal" id="intake_cal" /><br><br>
+
+  <label for="burned_cal">Daily burned calories:</label>
+  <input type="text" name="burned_cal" id="burned_cal" /><br><br>
+
+  <input type="submit" value="Submit">

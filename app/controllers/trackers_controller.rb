@@ -9,5 +9,18 @@ class TrackersController < ApplicationController
         end
     end
 
+    get '/trackers/new' do
+        if logged_in?
+            @current_user
+            erb :'/trackers/new'
+        else
+            redirect to '/signin'
+        end
+    end
+
+    post '/trackers' do
+        
+    end
+
 
 end
