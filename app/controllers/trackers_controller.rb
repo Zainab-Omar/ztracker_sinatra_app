@@ -60,6 +60,7 @@ class TrackersController < ApplicationController
             @tracker.exercise_time = params[:exercise_time]
             @tracker.intake_cal = params[:intake_cal]
             @tracker.burned_cal = params[:burned_cal]
+    
             if !@tracker.save
                 @errors = @tracker.errors.full_messages
                 erb :'/trackers/edit'
@@ -67,5 +68,15 @@ class TrackersController < ApplicationController
                 redirect to "/trackers/#{@tracker.id}" #show page            end
             end
         end
-
+        
+        delete '/trackers/:id/delete' do
+           
+            @tracker = Tracker.find(params[:id])
+            if logged_in? && @tracker.user == current_user
+                @tracker.destroy
+                redirect to '/trackers' #index
+            else
+                redirect to '/signin'
+            end
+        end
 end

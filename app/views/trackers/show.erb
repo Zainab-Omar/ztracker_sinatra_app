@@ -9,3 +9,8 @@
 
 <p><a href="/trackers/<%= @tracker.id %>/edit">Edit tracker</a></p>
 <p><a href="/trackers">See all Trackers</a></p>
+
+<form action="/trackers/<%= @tracker.id %>/delete" method="POST">
+<input type="hidden" id="hidden" name="_method" value="DELETE" />
+<input type="submit" value="Delete Tracker" />
+</form>
