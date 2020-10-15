@@ -32,5 +32,15 @@ class TrackersController < ApplicationController
             redirect to 'signin'
         end  
     end
+    #binding.pry
+    get '/trackers/:id' do  #show the tracker details to user
+       
+        @tracker = Tracker.find(params[:id])
+        if logged_in? && @tracker.user == current_user
+                    erb :'/trackers/show'
+        else
+            redirect to '/signin'
+       end
+     end
 
 end
