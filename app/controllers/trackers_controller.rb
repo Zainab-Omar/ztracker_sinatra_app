@@ -43,17 +43,16 @@ class TrackersController < ApplicationController
        end
      end
 
-     get '/trackers/id/edit' do  #route to enable user to update thier trackers
+     get '/trackers/:id/edit' do  #route to enable user to update thier trackers
              if logged_in?
                 @tracker = Tracker.find_by_id(params[:id])
                 if @tracker.user == current_user
-                    erb :'trackers/edit'
-                else
-                    redirect to '/trackers'
-                end
-                redirect to '/signin'
+                   erb :'/trackers/edit'
+                   else
+                    redirect to '/signin'
              end
         end
+    end
 
         patch '/trackers/:id' do
             

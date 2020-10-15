@@ -4,3 +4,8 @@
 <p>Exercise_time: <%=@tracker.exercise_time%></p>
 <p>Daily intake calories: <%=@tracker.intake_cal%></p>
 <p>Daily burned calories: <%=@tracker.burned_cal%></p>
+<br>
+
+
+<p><a href="/trackers/<%= @tracker.id %>/edit">Edit tracker</a></p>
+<p><a href="/trackers">See all Trackers</a></p>
