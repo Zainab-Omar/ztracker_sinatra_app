@@ -1,1 +1,18 @@
-<p><a href="/signout">signout</a></p>
+<h1>Welcome <%= @current_user.username %></h1>
+
+<h3>My Trackers </h3>
+ <ul>
+   <% if @trackers.size > 0 %>
+    <% @trackers.each do |tracker| %>
+     <% if tracker.user_id == @current_user.id %>
+       <li>Tracker Create at:<a href="/trackers/<%=tracker.id%>"><%=tracker.create_at%></a></li>
+     <%end%>
+      <%end%>
+<br><br>
+  <a href="/trackers/new">Create new tracker</a>
+  <%else%>
+    <h3>You do not have any trackers!<a href="/trackers/new">Create new tracker</a></h3>
+  <%end%>
+ </ul>
+
+<h4><a href="/signout"> signout</a></h4>
