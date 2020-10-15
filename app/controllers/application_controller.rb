@@ -28,6 +28,11 @@ class ApplicationController < Sinatra::Base
       !!session[:user_id]
     end
 
+    def total_calories
+      @tracker = Tracker.find(params[:id]) 
+      @total_cal = @tracker.intake_cal - @tracker.burned_cal
+    end
+
   end
 
 end

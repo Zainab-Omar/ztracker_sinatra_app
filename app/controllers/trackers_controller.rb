@@ -72,6 +72,7 @@ class TrackersController < ApplicationController
         delete '/trackers/:id/delete' do
            
             @tracker = Tracker.find(params[:id])
+            #binding.pry
             if logged_in? && @tracker.user == current_user
                 @tracker.destroy
                 redirect to '/trackers' #index
