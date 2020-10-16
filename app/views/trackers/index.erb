@@ -1,14 +1,23 @@
+<% if flash.has?(:message) %>
+  <h2 style="color:green;"><%= flash[:message] %></h2>
+<% end %>
+
+<% if flash.has?(:warning) %>
+  <h2 style="color:red;"><%= flash[:warning] %></h2>
+<% end %>
+
+
 <h1>Welcome <%= @current_user.username %></h1>
 
 <h3>My Trackers </h3>
- <ul>
+ <ol>
    <% if @trackers.size > 0 %>
     <% @trackers.each do |tracker| %>
      <% if tracker.user_id == @current_user.id %>
-       <li>Tracker Create at: <a href="/trackers/<%= tracker.id %>"><%=tracker.created_at%></a></li>
+      <li> Tracker Create at: <a href="/trackers/<%= tracker.id %>"><%=tracker.created_at%></a></li>
      <%end%>
       <%end%>
-   </ul>
+   </ol>
 
 <br><br>
 

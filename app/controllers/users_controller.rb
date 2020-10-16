@@ -24,7 +24,7 @@ class UsersController < ApplicationController
        if !session[:user_id]
         erb :'users/signin' 
        else
-        redirect to '/tracker' #index
+        redirect to '/trackers' #index
        end
     end
 

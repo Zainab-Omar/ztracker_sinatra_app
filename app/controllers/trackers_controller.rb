@@ -1,4 +1,7 @@
+require 'rack-flash'
+
 class TrackersController < ApplicationController
+    use Rack::Flash
 
     get '/trackers' do #index that show the user all trackers they create
         if logged_in?
@@ -25,18 +28,23 @@ class TrackersController < ApplicationController
                 @errors = @tracker.errors.full_messages
                 erb :'/trackers/new'
             else
+                flash[:message] = "You have successfully created a new tracker."
                 redirect to "/trackers/#{@tracker.id}" #redirect to show page 
             end
         else
-            redirect to 'signin'
+            redirect to '/signin'
         end  
     end
     
     get '/trackers/:id' do  #show the tracker details to user
        
         @tracker = Tracker.find(params[:id])
+        #binding.pry
         if logged_in? && @tracker.user == current_user
                     erb :'/trackers/show'
+        elsif @tracker.user != current_user
+            flash[:warning] = "You canot see, update, or delete trackers that do not belong to you."
+            redirect to '/trackers'  #index
         else
             redirect to '/signin'
        end
@@ -64,6 +72,7 @@ class TrackersController < ApplicationController
                 @errors = @tracker.errors.full_messages
                 erb :'/trackers/edit'
             else
+                flash[:message] = "Successfully updated tracker."
                 redirect to "/trackers/#{@tracker.id}" #show page            
             end
         end
@@ -73,6 +82,7 @@ class TrackersController < ApplicationController
             
             if logged_in? && @tracker.user == current_user
                 @tracker.destroy
+                flash[:message] = "Successfully deleted tracker."
                 redirect to '/trackers' #index
             else
                 redirect to '/signin'
