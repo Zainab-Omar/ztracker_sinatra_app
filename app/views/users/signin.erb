@@ -1,8 +1,9 @@
 <h2>Sign In Below:</h2>
 
-<% if @error %> 
- <p style="color: red;"><%= @error %></p>
-<%end%>
+
+<% if @errors %>
+  <p style="color: red;"><%= @errors %></p>
+<% end %>
 
 <form action="/signin" method="POST">
 

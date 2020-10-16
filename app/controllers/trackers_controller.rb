@@ -20,7 +20,6 @@ class TrackersController < ApplicationController
 
     post '/trackers' do #create new form
         if logged_in?
-           # binding.pry
             @tracker = current_user.trackers.build(params)
             if !@tracker.save
                 @errors = @tracker.errors.full_messages
@@ -32,11 +31,10 @@ class TrackersController < ApplicationController
             redirect to 'signin'
         end  
     end
-    #binding.pry
+    
     get '/trackers/:id' do  #show the tracker details to user
        
         @tracker = Tracker.find(params[:id])
-        #binding.pry
         if logged_in? && @tracker.user == current_user
                     erb :'/trackers/show'
         else
@@ -46,7 +44,6 @@ class TrackersController < ApplicationController
 
      get '/trackers/:id/edit' do  #route to enable user to update thier trackers
              if logged_in?
-               # binding.pry
                 @tracker = Tracker.find_by_id(params[:id])
                 if @tracker.user == current_user
                    erb :'/trackers/edit'
@@ -58,7 +55,6 @@ class TrackersController < ApplicationController
 
         patch '/trackers/:id' do
             @tracker = Tracker.find(params[:id])
-           # binding.pry
             @tracker.gender = params[:gender]
             @tracker.exercise_time = params[:exercise_time]
             @tracker.intake_cal = params[:intake_cal]
@@ -68,12 +64,11 @@ class TrackersController < ApplicationController
                 @errors = @tracker.errors.full_messages
                 erb :'/trackers/edit'
             else
-                redirect to "/trackers/#{@tracker.id}" #show page            end
+                redirect to "/trackers/#{@tracker.id}" #show page            
             end
         end
         
         delete '/trackers/:id/delete' do
-           #binding.pry
             @tracker = Tracker.find(params[:id])
             
             if logged_in? && @tracker.user == current_user

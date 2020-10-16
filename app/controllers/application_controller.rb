@@ -53,9 +53,8 @@ class ApplicationController < Sinatra::Base
         elsif total_calories > 2500
         "You will gain one pound of weight per week" 
         end
-       end
-   end
-
+      end
+    end
   end
 
 end

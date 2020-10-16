@@ -9,7 +9,6 @@ class UsersController < ApplicationController
     end
 
     post '/signup' do
-       # binding.pry
         @user = User.new(params)
         if !@user.save
             @errors = @user.errors.full_messages
@@ -30,13 +29,12 @@ class UsersController < ApplicationController
     end
 
     post '/signin' do
-        #binding.pry
         @user = User.find_by(email: params[:email])
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
             redirect to '/trackers'
         else
-            @error = "Invalid email or password"
+            @errors = "Invalid email or password"
             erb :'users/signin'
         end
     end
@@ -48,7 +46,6 @@ class UsersController < ApplicationController
         else
             redirect to '/'
         end
-
     end
 
 end
