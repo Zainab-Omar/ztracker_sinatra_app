@@ -10,14 +10,14 @@
 <h1>Welcome <%= @current_user.username %></h1>
 
 <h3>My Trackers </h3>
- <ol>
+ <ul>
    <% if @trackers.size > 0 %>
     <% @trackers.each do |tracker| %>
      <% if tracker.user_id == @current_user.id %>
       <li> Tracker Create at: <a href="/trackers/<%= tracker.id %>"><%=tracker.created_at%></a></li>
      <%end%>
       <%end%>
-   </ol>
+  
 
 <br><br>
 
@@ -26,5 +26,5 @@
     <h3>You do not have any trackers! <a href="/trackers/new">Create new tracker</a></h3>
   <%end%>
  
-
+</ul>
 <h4></h4><a href="/signout"> signout</a></h4>

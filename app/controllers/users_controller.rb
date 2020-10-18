@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     post '/signup' do
         @user = User.new(params)
         if !@user.save
+           # binding.pry
             @errors = @user.errors.full_messages
             
             erb :'users/create_user'

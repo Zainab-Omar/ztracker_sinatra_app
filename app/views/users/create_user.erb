@@ -1,7 +1,7 @@
 <h2>Create an account below:</h2>
 
 <% if @errors %>
-  <% @errors.each do |error| %>
+  <% @errors.uniq.each do |error| %>
     <p style="color: red;"><%= error %></p>
   <% end %>
 <% end %>
