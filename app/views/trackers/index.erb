@@ -14,7 +14,7 @@
    <% if @trackers.size > 0 %>
     <% @trackers.each do |tracker| %>
      <% if tracker.user_id == @current_user.id %>
-      <li> Tracker Create at: <a href="/trackers/<%= tracker.id %>"><%=tracker.created_at%></a></li>
+      <li> Tracker Create at: <a href="/trackers/<%= tracker.id %>"><%=tracker.date%></a></li>
      <%end%>
       <%end%>
   

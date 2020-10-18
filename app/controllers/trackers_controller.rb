@@ -63,6 +63,7 @@ class TrackersController < ApplicationController
 
         patch '/trackers/:id' do
             @tracker = Tracker.find(params[:id])
+            @tracker.date = params[:date]
             @tracker.gender = params[:gender]
             @tracker.exercise_time = params[:exercise_time]
             @tracker.intake_cal = params[:intake_cal]

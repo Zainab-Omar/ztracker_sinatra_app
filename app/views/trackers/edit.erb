@@ -7,6 +7,10 @@
 <form action="/trackers/<%=@tracker.id%>" method="POST">
   <input type="hidden" id="hidden" name="_method" value="PATCH" />
 
+  <label for="date">Date: </label>
+  <input type="date" name="date" id="date" value="<%=@tracker.date%>"/>
+  <br><br>
+
   <label for="gender">Gender:</label>
     <select name="gender" id= "gender">
   <option value="female">female</option>
