@@ -1,0 +1,28 @@
+body {
+    background-image:url("https://img.freepik.com/free-photo/set-sports-attributes_23-2147778577.jpg?size=626&ext=jpg");
+    text-align:center;
+  }
+
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+  }
+    
+    .signup, .signin {
+        border: 5px solid grey;
+        text-align:left;
+        background-color: rgb(127, 236, 255);
+        width: 300px;
+        padding: 50px;
+        margin-top: 20px;
+        margin-right: 500px;
+        margin-left: 500px;
+        margin-bottom: 100px;
+        
+    }
+    
+  

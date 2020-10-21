@@ -1,8 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/stylesheets/trackers.css" />
+</head>
+
+<body>
+<div class="tracker">
 <% if flash.has?(:message) %>
   <h2 style="color:green;"><%= flash[:message] %></h2>
 <% end %>
 
-<h2>Deatials for Tracker created at: <%=@tracker.date%></h2>
+<h2>Details for Tracker created at: <%=@tracker.date%></h2>
 <h3 style="color:blue;">Your Total Daily calories is: <%=total_calories%></h3>
 
 <h4><%=show_message%></h4>
@@ -24,3 +32,7 @@
 <input type="hidden" id="hidden" name="_method" value="DELETE" />
 <input type="submit" value="Delete Tracker" />
 </form>
+
+</div>
+</body>
+</html>

@@ -1,22 +1,38 @@
-<h2>Create an account below:</h2>
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/stylesheets/registration.css" />
+</head>
 
-<% if @errors %>
+<body>
+
+
+
+
+<form action="/signup" method="POST" style="border:1px solid #ccc">
+<div class="signup">
+  <h1>Sign Up</h1>
+  <p>Please fill in this form to create an account.</p>
+
+  <% if @errors %>
   <% @errors.uniq.each do |error| %>
     <p style="color: red;"><%= error %></p>
   <% end %>
 <% end %>
-
-<form action="/signup" method="POST">
-
+  
 <label for="username">Username:</label>
-<input type="text" name="username" id="username" /><br><br>
+<input type="text" name="username" id="username" placeholder="Enter Username" /><br><br>
 
 <label for="email">Email:</label>
-<input type="text" name="email" id="email" /><br><br>
+<input type="text" name="email" id="email" placeholder="Enter Email" /><br><br>
 
 <label for="password">Password:</label>
-<input type="password" name="password" id="password" />
+<input type="password" name="password" id="password" placeholder="Enter password" /><br><br>
 
 <input type="submit" value="Sign Up">
+</div>
+
 </form>
 
+</body>
+</html>

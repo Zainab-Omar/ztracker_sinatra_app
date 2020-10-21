@@ -1,0 +1,26 @@
+body{
+background-image: url("https://img.freepik.com/free-photo/set-sports-attributes_23-2147778577.jpg?size=626&ext=jpg");
+}
+
+.welcome{
+    background-color: rgb(127, 246, 255);
+    width: 400px;
+    border: 5px solid grey;
+    padding: 50px;
+    margin-top: 50px;
+    margin-right: 500px;
+    margin-left: 450px;
+    margin-bottom: 100px;
+}
+
+.branding {
+    clear: both;
+  }
+
+  h3{
+      color: rgb(9, 0, 130);
+  }
+
+  h1, h2 {
+      color: rgb(247, 0, 255);
+  }
