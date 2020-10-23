@@ -63,13 +63,15 @@ class TrackersController < ApplicationController
 
         patch '/trackers/:id' do
             @tracker = Tracker.find(params[:id])
-            @tracker.date = params[:date]
-            @tracker.gender = params[:gender]
-            @tracker.exercise_time = params[:exercise_time]
-            @tracker.intake_cal = params[:intake_cal]
-            @tracker.burned_cal = params[:burned_cal]
+           # binding.pry
+           if !@tracker.update(params["user"])
+            # @tracker.date = params[:date]
+            # @tracker.gender = params[:gender]
+            # @tracker.exercise_time = params[:exercise_time]
+            # @tracker.intake_cal = params[:intake_cal]
+            # @tracker.burned_cal = params[:burned_cal]
     
-            if !@tracker.save
+            #if !@tracker.save
                 @errors = @tracker.errors.full_messages
                 erb :'/trackers/edit'
             else
